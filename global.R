@@ -6,6 +6,8 @@ library("ggplot2"); packageVersion("ggplot2")
 library("data.table"); packageVersion("data.table")
 library("networkD3"); packageVersion("networkD3")
 library("gridExtra"); packageVersion("gridExtra")
+library("vegan"); packageVersion("vegan")
+
 # Default options for app startup
 source("core/default-parameters.R", local = TRUE)
 # For pasting times into things
@@ -220,7 +222,7 @@ component_options = function(physeq){
 ################################################################################
 # List of distances
 # Make available for relevant panels.
-distlist = as.list(unlist(phyloseq::distance("list")))
+distlist <- as.list(unlist(distanceMethodList))
 names(distlist) <- distlist
 distlist <- distlist[which(!distlist %in% c("ANY"))]
 ################################################################################
